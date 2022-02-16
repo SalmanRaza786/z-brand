@@ -9,6 +9,7 @@ use App\Http\Controllers\WebController;
 Route::any('/', [WebController::class, 'index']);
 Route::any('product-detail/{id}', [WebController::class, 'productDetail']);
 Route::any('pro-cat/{id}', [WebController::class, 'productByCat']);
+Route::any('order-now', [WebController::class,'orderNow']);
 
 
 
