@@ -27,11 +27,7 @@ class OrderMailJob implements ShouldQueue
 
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
+
     public function handle()
     {
        //  Mail::to('zeebrandstore@gmail.com')->send(new \App\Mail\NewOrderNotifiction($this->details));
