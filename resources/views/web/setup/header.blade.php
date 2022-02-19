@@ -3,6 +3,7 @@
     <!-- TOP HEADER -->
     <div id="top-header">
         <div class="container">
+
             <ul class="header-links pull-left">
 
                 <li><a href="{{url('/')}}">   <h3 style="color: white"> ZeeBrand</h3></a></li>
@@ -10,41 +11,28 @@
                 <li><a href="#"><i class="fa fa-envelope-o"></i> zeebrandstore@gmail.com</a></li>
 
             </ul>
+<div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div class="header-search">
+                    <form>
+                        <select class="input-select">
+                            <option value="0">All Categories</option>
+                            <option value="1">Cat</option>
+                            <option value="1">Category 02</option>
+                        </select>
+                        <input class="input" placeholder="Search here">
+                        <button class="search-btn">Search</button>
+                    </form>
+                </div>
+            </div>
+
 
         </div>
+
+
     </div>
     <!-- /TOP HEADER -->
 
-    <!-- MAIN HEADER -->
-    <div id="header">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-
-                <!-- SEARCH BAR -->
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="header-search">
-                        <form>
-                            <select class="input-select">
-                                <option value="0">All Categories</option>
-                                <option value="1">Category 01</option>
-                                <option value="1">Category 02</option>
-                            </select>
-                            <input class="input" placeholder="Search here">
-                            <button class="search-btn">Search</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- /SEARCH BAR -->
-
-            </div>
-            <!-- row -->
-        </div>
-        <!-- container -->
-    </div>
-    <!-- /MAIN HEADER -->
 </header>
 <!-- /HEADER -->
 

@@ -2,59 +2,6 @@
 @section('content')
 
 
-<!-- SECTION -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <!-- shop -->
-            <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="{{asset('assets/uploads/pics1.jpeg')}}" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Hair<br>Color</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /shop -->
-
-            <!-- shop -->
-            <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="{{asset('assets/uploads/pics9.jpeg')}}" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Accessories<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /shop -->
-
-            <!-- shop -->
-            <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="{{asset('assets/uploads/pics9.jpeg')}}" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Cameras<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /shop -->
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /SECTION -->
 
 <!-- SECTION -->
 <div class="section">
@@ -65,15 +12,11 @@
 
             <!-- section title -->
             <div class="col-md-12">
+
+
                 <div class="section-title">
-                    <h3 class="title">New Products</h3>
-                    <div class="section-nav">
-                        <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="">Laptops</a></li>
+                    <h3 class="title">Our Products</h3>
 
-
-                        </ul>
-                    </div>
                 </div>
             </div>
             <!-- /section title -->
@@ -150,6 +93,40 @@
 </div>
 <!-- /SECTION -->
 
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            @isset($data['catwise'])
+                @foreach($data['catwise'] as $cat)
+                    <div class="col-md-4 col-xs-6">
+                        <div class="shop">
+                            <a href="{{url('product-detail/').'/'.encrypt($cat->id)}}">
+                                <div class="shop-img">
+                                    <img src="{{asset('assets/uploads/').'/'.$cat->image}}" alt="">
+
+                                </div>
+                            </a>
+                            <div class="shop-body">
+
+                                <h3 class="product-name" style="color: white"><a href="#">{{$cat->name}}</a></h3>
+                                <a href="{{url('product-detail/').'/'.encrypt($cat->id)}}" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endisset
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
 <!-- HOT DEAL SECTION -->
 <div id="hot-deal" class="section">
     <!-- container -->
@@ -209,40 +186,57 @@
                     <h3 class="title">Top selling</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+
+                            @isset($data['topCatSale'])
+                                @foreach($data['topCatSale'] as $topCat)
+
+                                    <li><a href="{{url('pro-cat').'/'.encrypt($topCat->id)}}">{{$topCat->cat_name}}</a></li>
+                                @endforeach
+                                    @endisset
+
+
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- /section title -->
 
-            @for($i=0; $i<6; $i++)
-                <div class="col-md-3 col-xs-6">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{asset('assets/uploads/pics9.jpeg')}}" alt="">
-                            <div class="product-label">
-                                <span class="sale">-30%</span>
-                                <span class="new">NEW</span>
+
+
+            @isset($data['topSale'])
+                @foreach($data['topSale'] as $topSale)
+                    <div class="col-md-3 col-xs-6">
+                        <a href="{{url('product-detail/').'/'.encrypt($topSale->id)}}">
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="{{asset('assets/uploads/').'/'.$topSale->image}}" alt="">
+                                    <div class="product-label">
+
+                                        @php
+                                            $per=($topSale->sale_price*100) / $topSale->price;
+                                        @endphp
+                                        <span class="sale">-{{number_format($per,0)}}%</span>
+                                        <span class="new">NEW</span>
+                                    </div>
+                                </div>
+
+                                <div class="product-body">
+                                    <p class="product-category"></p>
+                                    <h3 class="product-name"><a href="{{url('product-detail/').'/'.encrypt($topSale->id)}}">{{$topSale->name}}</a></h3>
+                                    <h4 class="product-price">PKR {{number_format($topSale->sale_price,2)}} <del class="product-old-price">{{number_format($topSale->price,2)}}</del></h4>
+
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="{{url('product-detail/').'/'.encrypt($topSale->id)}}">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Buy</button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Buy</button>
-                        </div>
+                        </a>
                     </div>
-
-                </div>
-            @endfor
+                @endforeach
+            @endisset
         </div>
         <!-- /row -->
     </div>
