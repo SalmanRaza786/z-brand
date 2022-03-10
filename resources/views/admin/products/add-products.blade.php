@@ -1,25 +1,5 @@
 @extends('admin.admin-setup.master')
 @section('content')
-    <style type="text/css">
-        body {
-            font-family: Arial;
-            font-size: 10pt;
-        }
-        table {
-            border: 1px solid #ccc;
-            border-collapse: collapse;
-        }
-        table th {
-            background-color: #F7F7F7;
-            color: #333;
-            font-weight: bold;
-        }
-        table th,
-        table td {
-            padding: 5px;
-            border: 1px solid #ccc;
-        }
-    </style>
     <div class="page-wrapper">
         <!-- Page Content -->
         <div class="content container-fluid">
@@ -33,87 +13,93 @@
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a href="{{url('/add-product')}}" class="btn add-btn" title="Add New Product"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <a href="{{url('/products')}}" class="btn add-btn" title="Add New Product"><i class="fa fa-list" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
         <div class="card">
             <div class="card-body">
 
-
-                <form action="{{ url('add-products') }}" method="post" enctype="multipart/form-data">
+                @if($message=Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong> {{ $message}}</strong>
+                    </div>
+                @endif
+                <form action="{{ url('save-product') }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <div class="row">
 
 
-<div class="row">
+
                         <div class="col-md-6">
-                            <div class="d-flex flex-row">
-                                <label for=""> Name</label>
-                                <span class="text-danger">*</span>
-                                <input type="text" class="form-control ml-5" name="name">
+                            <div class="form-group">
+                                <label for="">Category</label>
+                                <select name="cat_id" id="" class="form-control">
+                                    <option value="">Choose Category</option>
+                                    @isset($data['category'])
+                                        @foreach($data['category']  as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->cat_name}}</option>
+                                        @endforeach
+                                    @endisset
+                                </select>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="d-flex flex-row">
-                                <label for=""> Price</label>
-                                <span class="text-danger">*</span>
-                                <input type="text" class="form-control ml-5" name="name">
+                            <div class="form-group">
+                                <label for="">Name</label>
+                                <input type="text" class="form-control" name="name" placeholder="Enter Product Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Price</label>
+                                <input type="number" class="form-control" name="price" placeholder="price">
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="d-flex flex-row">
-                                <label for=""> Price</label>
-                                <span class="text-danger">*</span>
-                                <input type="text" class="form-control ml-5" name="name">
+                            <div class="form-group">
+                                <label for="">Sale Price</label>
+                                <input type="number" class="form-control" name="sale_price" placeholder="Sale Price">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Desc</label>
+
+                                <textarea name="desc" id="" cols="10" rows="3" name="desc" class="form-control"></textarea>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="d-flex flex-row">
-                                <label for=""> Price</label>
-                                <span class="text-danger">*</span>
-                                <input type="text" class="form-control ml-5" name="name">
-                            </div>
-                        </div>
-</div>
-
-
-
-
-                    <div class="row mt-1">
+                    </div>
+                    <div class="row">
                         <!-- tabel start -->
-
-
                         <table class="table table-bordered mt-5 table-style">
-
-
                             <tbody id="tblPurchase">
                             <tr>
-
                                 <td>
                                     <label for="">Cover Image</label>
-                                    <input type="file" class="form-control " name="cover_image" required></td>
+                                    <input type="file" class="form-control " name="file" required>
+                                </td>
                                 <td><button type="button" class="btn-success" id="addNewRow"><i class="fa fa-plus"></i></button> </td>
                             </tr>
                             </tbody>
-
                         </table>
                         <button class="btn btn-primary" id="btnSubmit">Submit</button>
                     </div>
                 </form>
-
             </div>
         </div>
         <!-- /Page Content -->
     </div>
-
-
     <script type="text/javascript">
         $(function () {
             $('#addNewRow').on('click', function () {
@@ -123,16 +109,13 @@
             });
         });
     </script>
-
     <div id="dvOrders" style="display:none">
-
         <table class="table table-bordered mt-5 table-style secondtable " >
-
             <tr>
-
                 <td>
                     <label for="">Images</label>
-                    <input type="file" class="form-control "  name="images[]" ></td>
+                    <input type="file" class="form-control "  name="images[]" >
+                </td>
                 <td style="color:red;cursor: pointer" class="delete-row" title="Remove"><i class="fa fa-trash"></i></td>
             </tr>
         </table>
@@ -203,8 +186,4 @@
             });
         });
     </script>
-
-
 @endsection
-
-

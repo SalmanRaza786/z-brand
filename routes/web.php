@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin-dashboard', [AdminController::class, 'index']);
 Route::get('/products', [AdminController::class, 'products']);
 Route::any('/add-product', [AdminController::class, 'addProduct']);
+Route::any('/save-product', [AdminController::class, 'saveProduct']);
