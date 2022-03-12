@@ -43,7 +43,10 @@
 
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="{{asset('assets/uploads/').'/'.$pro->image}}" alt="">
+
+
+
+                                            <img src="{{asset('storage/app/public/products/').'/'.$pro->image}}" alt="Products">
                                             <div class="product-label">
 
                                                     @php
@@ -107,7 +110,8 @@
                         <div class="shop">
                             <a href="{{url('product-detail/').'/'.encrypt($cat->id)}}">
                                 <div class="shop-img">
-                                    <img src="{{asset('assets/uploads/').'/'.$cat->image}}" alt="">
+
+                                    <img src="{{asset('storage/app/public/products/').'/'.$pro->image}}" alt="Products">
 
                                 </div>
                             </a>
@@ -210,7 +214,8 @@
 
                             <div class="product">
                                 <div class="product-img">
-                                    <img src="{{asset('assets/uploads/').'/'.$topSale->image}}" alt="">
+
+                                    <img src="{{asset('storage/app/public/products/').'/'.$pro->image}}" alt="Products">
                                     <div class="product-label">
 
                                         @php

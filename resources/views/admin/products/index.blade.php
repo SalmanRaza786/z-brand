@@ -68,7 +68,7 @@
                                 <td>{{$c}}</td>
                                 <td>{{$pro->name}}</td>
                                 <td>
-                                    <img class="img img-thumbnail" src="{{asset('assets/uploads/').'/'.$pro->image}}" alt="{{$pro->name}}" style="height: 70px" width="80px">
+                                    <img class="img img-thumbnail" src="{{asset('storage/app/public/products/').'/'.$pro->image}}" alt="{{$pro->name}}" style="height: 70px" width="80px">
                                 </td>
                                 <td>{{$pro->price}}</td>
                                 <td>{{$pro->dsec}}</td>

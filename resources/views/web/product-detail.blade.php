@@ -19,7 +19,7 @@
 
                     <div class="product-preview">
 
-                        <img src="{{asset('assets/uploads/').'/'.$image->image}}" alt="">
+                        <img src="{{asset('storage/app/public/products/').'/'.$image->image}}" alt="Products">
                     </div>
 
                         @endforeach
@@ -38,7 +38,7 @@
 
                             <div class="product-preview">
 
-                                <img src="{{asset('assets/uploads/').'/'.$image->image}}" alt="">
+                                <img src="{{asset('storage/app/public/products/').'/'.$image->image}}" alt="Products">
                             </div>
 
                         @endforeach
