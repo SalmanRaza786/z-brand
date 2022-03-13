@@ -15,6 +15,16 @@
                 </li>
 
 
+                <li class="submenu">
+                    <a href="#"><i class="la la-pie-chart"></i> <span> Orders </span> <span class="menu-arrow"></span></a>
+                    <ul>
+
+                        <li><a href="{{url('/orders-list')}}">Orders List </a></li>
+
+                    </ul>
+                </li>
+
+
 
 
             </ul>

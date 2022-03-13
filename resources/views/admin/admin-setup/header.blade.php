@@ -95,20 +95,34 @@
         <!-- Message Notifications -->
         <!-- /Message Notifications -->
 
+
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 
+                @if(auth())
+                    @php
+                        $id=auth()->user()->id;
+                       $res= App\Models\User::find($id);
+
+                        if($res){
+                    $image=$res->image;
+                        }else{
+                        $image='';
+                        }
+
+                    @endphp
+                @endif
 
 
+                <span class="user-img">
 
-							<span class="user-img"><img src="{{asset('storage/app/public/uploads/staff-images/')}}" >
+                    <img src="{{asset('storage/app/public/user/user1-128x128.png')}}" >
 
 
 							<span class="status online"></span></span>
-                <span>    Salman</span>
+                <span>    @if(auth()) {{auth()->user()->name}} @endif </span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{url('my-profile')}}">My Profile</a>
                 <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
             </div>
         </li>

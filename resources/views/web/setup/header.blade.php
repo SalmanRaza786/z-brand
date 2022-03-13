@@ -7,7 +7,7 @@
             <ul class="header-links pull-left">
 
                 <li><a href="{{url('/')}}">   <h3 style="color: white"> ZeeBrand</h3></a></li>
-                <li><a href="#"><i class="fa fa-phone"></i> +92-343-0056723</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=923430056723""><i class="fa fa-phone"></i> +92-343-0056723</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> zeebrandstore@gmail.com</a></li>
 
             </ul>

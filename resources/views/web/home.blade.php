@@ -52,7 +52,7 @@
                                                     @php
                                                     $per=($pro->sale_price*100) / $pro->price;
                                                     @endphp
-                                                <span class="sale">-{{number_format($per,0)}}%</span>
+                                                <span class="sale">{{number_format($per,0)}}%</span>
                                                 <span class="new">NEW</span>
                                             </div>
                                         </div>
@@ -221,7 +221,7 @@
                                         @php
                                             $per=($topSale->sale_price*100) / $topSale->price;
                                         @endphp
-                                        <span class="sale">-{{number_format($per,0)}}%</span>
+                                        <span class="sale">{{number_format($per,0)}}%</span>
                                         <span class="new">NEW</span>
                                     </div>
                                 </div>

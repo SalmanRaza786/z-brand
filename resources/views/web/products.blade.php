@@ -10,7 +10,7 @@
 
 
 
-                                @isset($data['products'])
+                                @if(isset($data['products']))
                                     @foreach($data['products'] as $pro)
                                         <div class="col-md-3 col-xs-6">
                                             <a href="{{url('product-detail/').'/'.encrypt($pro->id)}}">
@@ -26,7 +26,7 @@
                                                             @php
                                                                 $per=($pro->sale_price*100) / $pro->price;
                                                             @endphp
-                                                            <span class="sale">-{{number_format($per,0)}}%</span>
+                                                            <span class="sale">{{number_format($per,0)}}%</span>
                                                             <span class="new">NEW</span>
                                                         </div>
                                                     </div>
@@ -46,8 +46,15 @@
                                             </a>
                                         </div>
                                     @endforeach
+
+
                                 @endisset
 
+                     @if($data['pro']==0)
+                         <center>
+                                        <div class="alert alert-danger">Data not found</div>
+                         </center>
+                         @endif
                         <div class="clearfix visible-sm visible-xs"></div>
                     </div>
                 </div>

@@ -53,6 +53,12 @@ class WebController extends Controller
          $cat_id=decrypt($cat_id);
         $data['cat']=Category::all();
         $data['products']=Product::with('catname')->where('cat_id',$cat_id)->get();
+        if( $data['products']->count() >0){
+            $data['pro']=1;
+        }else{
+            $data['pro']=0;
+        }
+
         return view('web.products')->with(compact('data'));
     }
 
@@ -85,5 +91,18 @@ class WebController extends Controller
             return redirect()->back()->with('message', 'شکریہ، ہمیں آپ کا آرڈر مل گیا ہے، جلد ہی آپ سے رابطہ کریں گے');
 
         }
+    }
+
+
+    //aboutUs
+    public function  aboutUs(){
+        $data['cat']=Category::all();
+        return view('web.about-us')->with(compact('data'));
+    }
+
+
+    public function  contactUs(){
+      $data['cat']=Category::all();
+        return view('web.contact-us')->with(compact('data'));
     }
 }

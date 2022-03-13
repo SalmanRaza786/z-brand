@@ -22,18 +22,18 @@
     <link type="text/css" rel="stylesheet" href="{{asset('public/assets/css/nouislider.min.css')}}"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/css/font-awesome.min.css')}}">
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="{{asset('public/assets/css/style.css')}}"/>
 
-  
+
 
 </head>
 <body>
 
       @include('web.setup.header')
         @yield('content')
-      
+
         @include('web.setup.footer')
-      
+
