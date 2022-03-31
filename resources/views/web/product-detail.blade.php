@@ -233,8 +233,8 @@
                                         <ul class="reviews">
                                             <li>
                                                 <div class="review-heading">
-                                                    <h5 class="name">John</h5>
-                                                    <p class="date">27 DEC 2018, 8:0 PM</p>
+                                                    <h5 class="name">Salman Raza</h5>
+                                                    <p class="date">27 DEC 2021, 8:0 PM</p>
                                                     <div class="review-rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -244,13 +244,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="review-body">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                                    <p> This is a very good product.It also has many benefits for me </p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="review-heading">
-                                                    <h5 class="name">John</h5>
-                                                    <p class="date">27 DEC 2018, 8:0 PM</p>
+                                                    <h5 class="name">Ali Abbass</h5>
+                                                    <p class="date">07 DEC 2021, 3:0 PM</p>
                                                     <div class="review-rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -260,13 +260,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="review-body">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                                    <p>I am very happy to use this product.I would advise you to use it too</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="review-heading">
-                                                    <h5 class="name">John</h5>
-                                                    <p class="date">27 DEC 2018, 8:0 PM</p>
+                                                    <h5 class="name">Nimra Amin</h5>
+                                                    <p class="date">15 FEB 2022, 10:00 AM</p>
                                                     <div class="review-rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -276,7 +276,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="review-body">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                                    <p>
+                                                        I have used Lichen  many times.It also has many benefits for me.I will also give you advice you guys use it too
+                                                    </p>
                                                 </div>
                                             </li>
                                         </ul>
